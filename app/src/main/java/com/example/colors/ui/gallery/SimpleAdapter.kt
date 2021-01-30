@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class SimpleAdapter(
     private val itemViewFile:Int,
-    private val data:ArrayList<ColorModel>) : RecyclerView.Adapter<MySimpleViewHolder>()
+    private val data:ArrayList<ColorModel>,
+    val onItemClick:(Int, ColorModel)->Unit) : RecyclerView.Adapter<MySimpleViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MySimpleViewHolder
     {
@@ -22,8 +23,8 @@ class SimpleAdapter(
     override fun onBindViewHolder(holder: MySimpleViewHolder, position: Int) {
             holder.cardView.setCardBackgroundColor(Color.parseColor(data[position].hex));
     //        holder.cardView.setBackgroundColor(Color.parseColor("#FF1"))
-    //        holder.itemView.setOnClickListener {
-//
-//        }
+            holder.itemView.setOnClickListener {
+                onItemClick(position,data[position])
+            }
     }
 }
