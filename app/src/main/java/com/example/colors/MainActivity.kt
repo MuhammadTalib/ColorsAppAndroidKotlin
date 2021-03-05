@@ -1,12 +1,12 @@
 package com.example.colors
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -45,13 +45,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
-        menu.getItem(R.id.action_about).setOnMenuItemClickListener {
-            val manager: android.app.FragmentManager? = fragmentManager
-            val transaction: android.app.FragmentTransaction? = manager!!.beginTransaction()
-            transaction!!.replace(R.id.fragmentsContainer, ColorFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+//        menu.getItem(R.id.action_about).setOnMenuItemClickListener {
+//            val fragTrans = supportFragmentManager.beginTransaction()
+//            fragTrans.add(R.id.nav_about,SlideshowFragment())
+//            fragTrans.addToBackStack(null)
+//            fragTrans.commit()
+//            true
+//        }
         return true
     }
 
